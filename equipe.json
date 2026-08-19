@@ -1,0 +1,21 @@
+{
+  "socios": [
+    {
+      "nome": "Marçal Aranha",
+      "cargo": "Sócio-fundador",
+      "bio": "Atuação com foco em direito público e administrativo, com a experiência real de quem conhece por dentro a rotina da máquina pública.",
+      "foto": ""
+    },
+    {
+      "nome": "Tássia Costa",
+      "cargo": "Sócia-fundadora",
+      "bio": "Atuação em direito do trabalho empresarial e imobiliário, com assessoria próxima e orientada à prevenção de risco.",
+      "foto": ""
+    }
+  ],
+  "associados": [
+    { "nome": "Helena Vasconcelos", "area": "Direito Cível", "foto": "" },
+    { "nome": "Rafael Nogueira", "area": "Direito do Trabalho", "foto": "" },
+    { "nome": "Lívia Sampaio", "area": "Direito Imobiliário", "foto": "" }
+  ]
+}

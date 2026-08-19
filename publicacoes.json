@@ -1,0 +1,40 @@
+{
+  "itens": [
+    {
+      "data": "2026-08-01",
+      "categoria": "Direito Administrativo",
+      "titulo": "Nova Lei de Licitações: o que muda para quem contrata com o poder público",
+      "resumo": "Um panorama prático das mudanças que mais impactam empresas e gestores — e os pontos de atenção que evitam contratos travados e defesas tardias.",
+      "destaque": true,
+      "arquivo": "",
+      "corpo": ""
+    },
+    {
+      "data": "2026-07-01",
+      "categoria": "Direito Imobiliário",
+      "titulo": "Distratos imobiliários: o que a construtora precisa documentar",
+      "resumo": "",
+      "destaque": false,
+      "arquivo": "",
+      "corpo": ""
+    },
+    {
+      "data": "2026-06-01",
+      "categoria": "Direito do Trabalho",
+      "titulo": "Compliance trabalhista: prevenir custa menos que defender",
+      "resumo": "",
+      "destaque": false,
+      "arquivo": "",
+      "corpo": ""
+    },
+    {
+      "data": "2026-05-01",
+      "categoria": "Direito Cível",
+      "titulo": "Responsabilidade civil em contratos: onde mora o risco",
+      "resumo": "",
+      "destaque": false,
+      "arquivo": "",
+      "corpo": ""
+    }
+  ]
+}

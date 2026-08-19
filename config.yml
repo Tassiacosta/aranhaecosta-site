@@ -1,0 +1,127 @@
+# ==========================================================================
+#  Configuração do painel de edição (Decap CMS)
+#  >>> ANTES DE PUBLICAR: troque a linha "repo" abaixo pelo nome do seu
+#      repositório no GitHub, no formato  usuario/nome-do-repositorio
+# ==========================================================================
+
+backend:
+  name: github
+  repo: Tassiacosta/aranhaecosta-site
+  branch: main
+
+# Onde as imagens/arquivos enviados pelo painel ficam guardados
+media_folder: "imagens"
+public_folder: "/imagens"
+
+# Idioma do painel
+locale: "pt"
+
+# Mensagens amigáveis no histórico de alterações
+site_url: https://aranhaecostaadvogados.com
+display_url: https://aranhaecostaadvogados.com
+
+collections:
+  # -------------------- PUBLICAÇÕES --------------------
+  - name: "publicacoes"
+    label: "📄 Publicações"
+    files:
+      - name: "lista"
+        label: "Publicações (matérias e arquivos)"
+        file: "publicacoes.json"
+        description: "Adicione, edite ou remova as publicações. A mais recente marcada como destaque aparece grande no topo."
+        fields:
+          - label: "Publicações"
+            name: "itens"
+            widget: "list"
+            label_singular: "Publicação"
+            summary: "{{fields.data}} — {{fields.titulo}}"
+            fields:
+              - { label: "Data", name: "data", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "Categoria (ex.: Direito Imobiliário)", name: "categoria", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Resumo (aparece no card)", name: "resumo", widget: "text", required: false }
+              - { label: "Destaque no topo?", name: "destaque", widget: "boolean", default: false }
+              - { label: "Matéria completa (opcional)", name: "corpo", widget: "text", required: false, hint: "Escreva o texto da matéria. Deixe em branco se a publicação for apenas um arquivo/PDF." }
+              - { label: "Arquivo PDF (opcional)", name: "arquivo", widget: "file", required: false, hint: "Envie um PDF se quiser disponibilizar para download." }
+
+  # -------------------- EQUIPE --------------------
+  - name: "equipe"
+    label: "👥 Equipe"
+    files:
+      - name: "equipe"
+        label: "Sócios e associados"
+        file: "equipe.json"
+        description: "Edite nomes, cargos, textos e fotos. Se não enviar foto, aparece uma silhueta com as iniciais."
+        fields:
+          - label: "Sócios"
+            name: "socios"
+            widget: "list"
+            label_singular: "Sócio"
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Cargo", name: "cargo", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Foto", name: "foto", widget: "image", required: false }
+          - label: "Associados"
+            name: "associados"
+            widget: "list"
+            label_singular: "Associado"
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Área", name: "area", widget: "string" }
+              - { label: "Foto", name: "foto", widget: "image", required: false }
+
+  # -------------------- TEXTOS DO SITE --------------------
+  - name: "site"
+    label: "✏️ Textos do site"
+    files:
+      - name: "geral"
+        label: "Capa, escritório, áreas e contato"
+        file: "site.json"
+        description: "Edite os textos das seções principais do site."
+        fields:
+          - label: "Capa (topo do site)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Linha superior", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Subtítulo", name: "subtitulo", widget: "text" }
+          - label: "O Escritório"
+            name: "sobre"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - label: "Parágrafos"
+                name: "paragrafos"
+                widget: "list"
+                field: { label: "Parágrafo", name: "p", widget: "text" }
+              - label: "Valores"
+                name: "valores"
+                widget: "list"
+                field: { label: "Valor", name: "v", widget: "string" }
+          - label: "Áreas de atuação"
+            name: "areas"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Subtítulo", name: "subtitulo", widget: "text" }
+              - label: "Áreas"
+                name: "itens"
+                widget: "list"
+                label_singular: "Área"
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: "Título", name: "titulo", widget: "string" }
+                  - { label: "Descrição", name: "descricao", widget: "text" }
+          - label: "Contato"
+            name: "contato"
+            widget: "object"
+            fields:
+              - { label: "Endereço (linha 1)", name: "endereco_l1", widget: "string" }
+              - { label: "Endereço (linha 2)", name: "endereco_l2", widget: "string" }
+              - { label: "E-mail", name: "email", widget: "string" }
+              - { label: "Atendimento (linha 1)", name: "atendimento_l1", widget: "string" }
+              - { label: "Atendimento (linha 2)", name: "atendimento_l2", widget: "string" }

@@ -1,0 +1,4 @@
+# Configuração da hospedagem (Netlify). O site é estático (sem build).
+[build]
+  publish = "."
+  command = ""
