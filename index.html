@@ -155,6 +155,17 @@ nav.links a.nav-cta{color:var(--accent-ink)}
   :root:not([data-theme="light"]) .theme-toggle .sun{display:none}
 }
 .menu-btn{display:none}
+/* Barra do cabeçalho colorida (marrom da marca, conteúdo em creme) */
+header.nav{background:#4A4034;-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid rgba(226,222,210,.14)}
+header.nav.scrolled{border-bottom-color:rgba(226,222,210,.22)}
+header.nav .brand .logo{color:#F3F1EA}
+header.nav nav.links a{color:#E2DED2}
+header.nav nav.links a::after{background:#F3F1EA}
+header.nav nav.links a:hover,header.nav nav.links a.active{color:#F3F1EA}
+header.nav .nav-tools .icon-btn,header.nav .menu-btn{color:#E7E3D8;border-color:rgba(226,222,210,.32)}
+header.nav .nav-tools .icon-btn:hover,header.nav .menu-btn:hover{border-color:#F3F1EA}
+header.nav nav.links a.nav-cta{background:#E2DED2;color:#4A4034;border-color:#E2DED2}
+header.nav nav.links a.nav-cta:hover{background:#F3F1EA;border-color:#F3F1EA;transform:translateY(-1px)}
 
 /* ============ HERO ============ */
 .hero{position:relative;overflow:hidden;padding:clamp(70px,11vw,132px) 0 clamp(56px,8vw,96px)}
