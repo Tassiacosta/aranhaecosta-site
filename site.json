@@ -7,14 +7,14 @@
   "sobre": {
     "titulo": "Compromisso com cada cliente, em cada processo.",
     "paragrafos": [
-      "O Aranha & Costa nasceu em 2017, em Maceió, da sociedade entre Marçal Aranha e Tássia Costa.",
-      "Nosso compromisso é conduzir uma assessoria jurídica transparente sobre os direitos de cada cliente, com acompanhamento personalizado e profissional. Buscamos ser referência em Alagoas pela experiência técnica, pela segurança e pelo cuidado com que tratamos cada processo."
+      "O Aranha & Costa é um escritório de advocacia com sede em Maceió, dedicado a uma assessoria jurídica técnica, próxima e comprometida com cada cliente.",
+      "Conduzimos cada caso com transparência sobre os direitos do cliente e acompanhamento profissional, unindo experiência técnica, segurança e cuidado em todas as áreas em que atuamos."
     ],
     "valores": ["Competência", "Confiança", "Eficiência", "Credibilidade", "Responsabilidade"]
   },
   "areas": {
-    "titulo": "Atuação com domínio técnico em cada área.",
-    "subtitulo": "Acompanhamos empresas, gestores públicos e famílias — da consultoria estratégica à atuação em processos.",
+    "titulo": "Áreas de Atuação",
+    "subtitulo": "Acompanhamos clientes privados e públicos — da consultoria estratégica à atuação em processos.",
     "itens": [
       { "titulo": "Direito Administrativo", "descricao": "Assessoria a gestores públicos e a empresas que contratam com o poder público: licitações, contratos administrativos, atuação junto ao Tribunal de Contas, assessoria em controle interno e defesa em processos de improbidade." },
       { "titulo": "Direito Imobiliário", "descricao": "Suporte a incorporadoras, construtoras e imobiliárias — da regularização à contratação." },

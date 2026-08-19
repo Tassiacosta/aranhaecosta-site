@@ -121,7 +121,7 @@ header.nav.scrolled{border-bottom-color:var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
 .brand{display:flex;align-items:center;gap:13px}
 .brand .logo{display:block;line-height:0;color:var(--ink-strong)}
-.brand .logo svg{height:34px;width:auto;display:block}
+.brand .logo svg{height:46px;width:auto;display:block}
 .monogram{
   width:38px;height:38px;flex:none;border:1px solid var(--ink-strong);
   display:grid;place-items:center;border-radius:2px;
@@ -139,6 +139,8 @@ nav.links a{
 nav.links a::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:1px;background:var(--ink-strong);transform:scaleX(0);transform-origin:left;transition:transform .28s}
 nav.links a:hover::after,nav.links a.active::after{transform:scaleX(1)}
 .nav-cta{margin-left:10px;padding:11px 20px}
+nav.links a.nav-cta{color:var(--accent-ink)}
+.mobile-menu a.btn-primary{color:var(--accent-ink)}
 .nav-tools{display:flex;align-items:center;gap:4px}
 .icon-btn{
   width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);
@@ -374,21 +376,15 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="#contato">Falar com o escritório</a>
       </div>
-      <div class="hero-meta">
-        <span>Fundado em <b>2017</b></span>
-        <span>Sócios <b>Marçal Aranha &amp; Tássia Costa</b></span>
-        <span>Sede <b>Edf. Terra Brasilis · Centro</b></span>
-      </div>
     </div>
   </section>
 
   <!-- ATUAÇÃO -->
-  <section id="atuacao">
+  <section id="atuacao" class="band">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Áreas de atuação</p>
-        <h2 id="c-areas-title">Atuação com domínio técnico em cada área.</h2>
-        <p class="lead muted" id="c-areas-sub">Acompanhamos empresas, gestores públicos e famílias — da consultoria estratégica à atuação em processos.</p>
+        <h2 id="c-areas-title">Áreas de Atuação</h2>
+        <p class="lead muted" id="c-areas-sub">Acompanhamos clientes privados e públicos — da consultoria estratégica à atuação em processos.</p>
       </div>
       <div class="areas reveal" id="c-areas">
         <div class="area">
@@ -426,14 +422,14 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
   </section>
 
   <!-- ESCRITÓRIO -->
-  <section id="escritorio" class="band">
+  <section id="escritorio">
     <div class="wrap about-single">
       <div class="about-copy reveal">
         <p class="eyebrow">O Escritório</p>
         <h2 id="c-sobre-title">Compromisso com cada cliente, em cada processo.</h2>
         <div id="c-sobre-paras">
-        <p style="margin-top:24px">O Aranha &amp; Costa nasceu em 2017, em Maceió, da sociedade entre <strong>Marçal Aranha</strong> e <strong>Tássia Costa</strong>.</p>
-        <p style="margin-top:20px">Nosso compromisso é conduzir uma assessoria jurídica transparente sobre os direitos de cada cliente, com acompanhamento personalizado e profissional. Buscamos ser referência em Alagoas pela experiência técnica, pela segurança e pelo cuidado com que tratamos cada processo.</p>
+        <p style="margin-top:24px">O Aranha &amp; Costa é um escritório de advocacia com sede em Maceió, dedicado a uma assessoria jurídica técnica, próxima e comprometida com cada cliente.</p>
+        <p style="margin-top:20px">Conduzimos cada caso com transparência sobre os direitos do cliente e acompanhamento profissional, unindo experiência técnica, segurança e cuidado em todas as áreas em que atuamos.</p>
         </div>
         <div class="values" id="c-sobre-valores">
           <span class="chip">Competência</span>
@@ -447,7 +443,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
   </section>
 
   <!-- EQUIPE -->
-  <section id="equipe">
+  <section id="equipe" class="band">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Equipe</p>
@@ -490,7 +486,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
   </section>
 
   <!-- PUBLICAÇÕES -->
-  <section id="publicacoes" class="band">
+  <section id="publicacoes">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Publicações</p>
@@ -546,7 +542,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
   </section>
 
   <!-- CONTATO -->
-  <section id="contato">
+  <section id="contato" class="band">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Contato</p>
