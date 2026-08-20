@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aranha &amp; Costa Advogados</title>
-<meta name="description" content="Aranha &amp; Costa Advogados — assessoria jurídica especializada em Maceió/AL: Direito Administrativo, Imobiliário, Cível, Portuário e do Trabalho.">
+<meta name="description" content="Aranha &amp; Costa Advogados — assessoria jurídica especializada em Maceió/AL: Direito Administrativo, Imobiliário, Cível e do Trabalho.">
 </head>
 <body>
 
@@ -195,7 +195,9 @@ section{padding:clamp(64px,9vw,110px) 0;position:relative}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ---- Áreas ---- */
-.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+@media (max-width:980px){.areas{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.areas{grid-template-columns:1fr}}
 .area{background:var(--surface);padding:34px 30px 38px;transition:background .3s}
 .area:hover{background:var(--ground)}
 .area .num{font-family:'Abel',sans-serif;font-size:12.5px;letter-spacing:.2em;color:var(--muted)}
@@ -418,12 +420,6 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
         </div>
         <div class="area">
           <p class="num">04</p>
-          <h3>Direito Portuário</h3>
-          <div class="rule"></div>
-          <p>Assessoria a operadores e empresas do setor portuário, com domínio do regime regulatório e das rotinas próprias da atividade.</p>
-        </div>
-        <div class="area">
-          <p class="num">05</p>
           <h3>Direito do Trabalho</h3>
           <div class="rule"></div>
           <p>Prevenção de risco e defesa empresarial nas relações trabalhistas — do compliance à atuação em processos já instaurados.</p>
