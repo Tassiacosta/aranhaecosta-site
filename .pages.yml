@@ -1,0 +1,150 @@
+media:
+  input: imagens
+  output: /imagens
+content:
+- name: publicacoes
+  label: Publicações
+  type: file
+  path: publicacoes.json
+  fields:
+  - name: itens
+    label: Publicações
+    type: object
+    list: true
+    fields:
+    - name: data
+      label: Data
+      type: date
+    - name: categoria
+      label: 'Categoria (ex.: Direito Imobiliário)'
+      type: string
+    - name: titulo
+      label: Título
+      type: string
+    - name: resumo
+      label: Resumo (aparece no card)
+      type: text
+      required: false
+    - name: destaque
+      label: Destaque no topo?
+      type: boolean
+    - name: corpo
+      label: Matéria completa (opcional)
+      type: text
+      required: false
+    - name: arquivo
+      label: Link de arquivo/PDF (opcional)
+      type: string
+      required: false
+- name: equipe
+  label: Equipe
+  type: file
+  path: equipe.json
+  fields:
+  - name: socios
+    label: Sócios
+    type: object
+    list: true
+    fields:
+    - name: nome
+      label: Nome
+      type: string
+    - name: cargo
+      label: Cargo
+      type: string
+    - name: bio
+      label: Bio
+      type: text
+    - name: foto
+      label: Foto
+      type: image
+      required: false
+  - name: associados
+    label: Associados
+    type: object
+    list: true
+    fields:
+    - name: nome
+      label: Nome
+      type: string
+    - name: area
+      label: Área ou OAB (deixe vazio para estagiário)
+      type: string
+      required: false
+    - name: foto
+      label: Foto
+      type: image
+      required: false
+- name: site
+  label: Textos do site
+  type: file
+  path: site.json
+  fields:
+  - name: hero
+    label: Capa (topo do site)
+    type: object
+    fields:
+    - name: eyebrow
+      label: Linha superior
+      type: string
+    - name: titulo
+      label: Título
+      type: string
+    - name: subtitulo
+      label: Subtítulo
+      type: text
+  - name: sobre
+    label: O Escritório
+    type: object
+    fields:
+    - name: titulo
+      label: Título
+      type: string
+    - name: paragrafos
+      label: Parágrafos
+      type: text
+      list: true
+    - name: valores
+      label: Valores
+      type: string
+      list: true
+  - name: areas
+    label: Áreas de atuação
+    type: object
+    fields:
+    - name: titulo
+      label: Título
+      type: string
+    - name: subtitulo
+      label: Subtítulo
+      type: text
+    - name: itens
+      label: Áreas
+      type: object
+      list: true
+      fields:
+      - name: titulo
+        label: Título
+        type: string
+      - name: descricao
+        label: Descrição
+        type: text
+  - name: contato
+    label: Contato
+    type: object
+    fields:
+    - name: endereco_l1
+      label: Endereço (linha 1)
+      type: string
+    - name: endereco_l2
+      label: Endereço (linha 2)
+      type: string
+    - name: email
+      label: E-mail
+      type: string
+    - name: atendimento_l1
+      label: Atendimento (linha 1)
+      type: string
+    - name: atendimento_l2
+      label: Atendimento (linha 2)
+      type: string
