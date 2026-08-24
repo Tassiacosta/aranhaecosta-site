@@ -584,7 +584,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
             </div>
             <div>
               <dt>Atendimento</dt>
-              <dd id="c-atendimento">Segunda a sexta, das 08h às 17h<br>Atendimento presencial com hora marcada</dd>
+              <dd id="c-atendimento">Segunda a sexta, das 08h às 17h</dd>
             </div>
             <div>
               <dt>Redes</dt>
@@ -772,7 +772,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
     if(d.contato){
       var end=document.getElementById('c-endereco');if(end)end.innerHTML=esc(d.contato.endereco_l1)+'<br>'+esc(d.contato.endereco_l2);
       var em=document.getElementById('c-email');if(em&&d.contato.email){em.textContent=d.contato.email;em.setAttribute('href','mailto:'+d.contato.email);}
-      var at=document.getElementById('c-atendimento');if(at)at.innerHTML=esc(d.contato.atendimento_l1)+'<br>'+esc(d.contato.atendimento_l2);
+      var at=document.getElementById('c-atendimento');if(at)at.innerHTML=esc(d.contato.atendimento_l1)+(d.contato.atendimento_l2?'<br>'+esc(d.contato.atendimento_l2):'');
     }
   }).catch(function(){});
 
