@@ -4,13 +4,13 @@
       "nome": "Marçal Aranha",
       "cargo": "Sócio-fundador",
       "bio": "Atuação com foco em direito público e administrativo, com a experiência real de quem conhece por dentro a rotina da máquina pública.",
-      "foto": ""
+      "foto": "/imagens/marcal.jpg"
     },
     {
       "nome": "Tássia Costa",
       "cargo": "Sócia-fundadora",
       "bio": "Atuação em direito do trabalho empresarial e imobiliário, com assessoria próxima e orientada à prevenção de risco.",
-      "foto": ""
+      "foto": "/imagens/tassia.jpg"
     }
   ],
   "associados": [
