@@ -245,7 +245,11 @@ section{padding:clamp(64px,9vw,110px) 0;position:relative}
 .pub-featured .date{font-family:'Abel',sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pub-featured .date{color:var(--line-strong)}}
 :root[data-theme="dark"] .pub-featured .date{color:var(--line-strong)}
-.pub-featured h3{font-size:clamp(23px,2.8vw,30px);font-weight:500;margin:14px 0 14px}
+.pub-featured h3{font-size:clamp(23px,2.8vw,30px);font-weight:500;margin:14px 0 8px}
+.pub-autor{font-family:'Abel',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pub-autor{color:var(--line-strong)}}
+:root[data-theme="dark"] .pub-autor{color:var(--line-strong)}
+.pub-row .autor{font-family:'Abel',sans-serif;font-size:13px;color:var(--muted);margin-top:2px}
 .pub-featured p{font-size:16.5px;margin-bottom:22px}
 .pub-list{display:grid;gap:0;border-top:1px solid var(--line)}
 .pub-row{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;padding:24px 6px;border-bottom:1px solid var(--line);transition:padding-left .3s}
@@ -296,7 +300,11 @@ section{padding:clamp(64px,9vw,110px) 0;position:relative}
 .modal-box .date{font-family:'Abel',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .modal-box .date{color:var(--line-strong)}}
 :root[data-theme="dark"] .modal-box .date{color:var(--line-strong)}
-.modal-box h3{font-size:clamp(23px,3vw,32px);font-weight:500;margin:12px 0 22px}
+.modal-box h3{font-size:clamp(23px,3vw,32px);font-weight:500;margin:12px 0 8px}
+.materia-autor{font-family:'Abel',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .materia-autor{color:var(--line-strong)}}
+:root[data-theme="dark"] .materia-autor{color:var(--line-strong)}
+.materia-autor:empty{display:none}
 .modal-body p{font-size:17px;line-height:1.7}
 .modal-body p+p{margin-top:16px}
 .modal-body h4{font-family:'Fahkwang',Georgia,serif;font-weight:500;font-size:21px;color:var(--ink-strong);margin:30px 0 12px;line-height:1.2}
@@ -679,6 +687,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
     </button>
     <p class="date" id="materiaData"></p>
     <h3 id="materiaTitulo"></h3>
+    <p class="materia-autor" id="materiaAutor"></p>
     <div class="modal-body" id="materiaCorpo"></div>
   </div>
 </div>
@@ -723,6 +732,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
     var dd=parseDate(it.data);
     document.getElementById('materiaData').textContent=(dd?dd.mesFull+' · '+dd.y+' — ':'')+(it.categoria||'');
     document.getElementById('materiaTitulo').textContent=it.titulo||'';
+    document.getElementById('materiaAutor').textContent = it.autor ? ('Por '+it.autor) : '';
     document.getElementById('materiaCorpo').innerHTML = it.corpo ? mdToHtml(it.corpo) : ('<p>'+esc(it.resumo||'')+'</p>');
     modal.classList.add('open');document.body.style.overflow='hidden';
   }
@@ -787,7 +797,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
       var cover=fd?'<span class="k">'+fd.mesAbrev+'<br>'+fd.y+'</span>':'<span class="k">Aranha<br>&amp; Costa</span>';
       var dline=fd?(fd.mesFull+' · '+fd.y+' — '+esc(feat.categoria||'')):esc(feat.categoria||'');
       f.innerHTML='<div class="pub-cover">'+cover+'<span class="mon">Aranha &amp; Costa</span></div>'+
-        '<div><p class="date">'+dline+'</p><h3>'+esc(feat.titulo)+'</h3><p>'+esc(feat.resumo||'')+'</p>'+ctaMateria(feat,'btn btn-primary')+'</div>';
+        '<div><p class="date">'+dline+'</p><h3>'+esc(feat.titulo)+'</h3>'+(feat.autor?'<p class="pub-autor">Por '+esc(feat.autor)+'</p>':'')+'<p>'+esc(feat.resumo||'')+'</p>'+ctaMateria(feat,'btn btn-primary')+'</div>';
       var fb=f.querySelector('[data-materia]');if(fb)fb.addEventListener('click',function(e){e.preventDefault();abrirMateria(feat);});
     }
 
@@ -799,7 +809,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
         var go=it.arquivo
           ?'<a class="go" href="'+esc(it.arquivo)+'" target="_blank" rel="noopener">Baixar PDF '+DL+'</a>'
           :(it.corpo?'<a class="go" href="#" data-idx="'+idx+'">Ler '+ARR+'</a>':'<span class="go muted">Em breve</span>');
-        return '<div class="pub-row"><span class="date">'+dlab+'</span><div><h4>'+esc(it.titulo)+'</h4><p class="cat">'+esc(it.categoria||'')+'</p></div>'+go+'</div>';
+        return '<div class="pub-row"><span class="date">'+dlab+'</span><div><h4>'+esc(it.titulo)+'</h4><p class="cat">'+esc(it.categoria||'')+'</p>'+(it.autor?'<p class="autor">Por '+esc(it.autor)+'</p>':'')+'</div>'+go+'</div>';
       }).join('');
       l.querySelectorAll('a[data-idx]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();abrirMateria(mem[+a.getAttribute('data-idx')]);});});
     }
