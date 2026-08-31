@@ -237,29 +237,34 @@ section{padding:clamp(64px,9vw,110px) 0;position:relative}
 .assoc-card b{display:block;font-family:'Fahkwang',serif;font-weight:500;font-size:17px;color:var(--ink-strong)}
 .assoc-card span{font-family:'Abel',sans-serif;font-size:14px;color:var(--muted)}
 
-/* ---- Publicações ---- */
-.pub-featured{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,52px);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:clamp(24px,3vw,34px);margin-bottom:34px}
-.pub-cover{aspect-ratio:5/3.4;border-radius:2px;overflow:hidden;background:var(--accent);position:relative;display:grid;place-items:center}
-.pub-cover .k{font-family:'Fahkwang',serif;font-weight:300;font-size:clamp(40px,6vw,68px);color:var(--accent-ink);opacity:.9;letter-spacing:.02em}
-.pub-cover .mon{position:absolute;right:16px;bottom:14px;font-family:'Abel',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-ink);opacity:.7}
-.pub-featured .date{font-family:'Abel',sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pub-featured .date{color:var(--line-strong)}}
-:root[data-theme="dark"] .pub-featured .date{color:var(--line-strong)}
-.pub-featured h3{font-size:clamp(23px,2.8vw,30px);font-weight:500;margin:14px 0 8px}
-.pub-autor{font-family:'Abel',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pub-autor{color:var(--line-strong)}}
-:root[data-theme="dark"] .pub-autor{color:var(--line-strong)}
-.pub-row .autor{font-family:'Abel',sans-serif;font-size:13px;color:var(--muted);margin-top:2px}
-.pub-featured p{font-size:16.5px;margin-bottom:22px}
-.pub-list{display:grid;gap:0;border-top:1px solid var(--line)}
-.pub-row{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;padding:24px 6px;border-bottom:1px solid var(--line);transition:padding-left .3s}
-.pub-row:hover{padding-left:14px}
-.pub-row .date{font-family:'Abel',sans-serif;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.pub-row h4{font-family:'Fahkwang',serif;font-weight:500;font-size:19px}
-.pub-row .cat{font-family:'Abel',sans-serif;font-size:13px;color:var(--muted);margin-top:4px}
-.pub-row .go{display:inline-flex;align-items:center;gap:8px;font-family:'Abel',sans-serif;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-strong);white-space:nowrap}
-.pub-row .go svg{width:14px;height:14px;transition:transform .3s}
-.pub-row:hover .go svg{transform:translateX(4px)}
+/* ---- Publicações (cards estilo editorial) ---- */
+.pub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,30px);margin-top:8px}
+.pub-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow:hidden;text-align:left;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease,border-color .3s}
+.pub-card:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(30,26,20,.10);border-color:var(--line-strong)}
+.pub-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.pub-thumb{aspect-ratio:5/3.15;overflow:hidden;background:var(--accent);position:relative;display:grid;place-items:center}
+.pub-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.pub-card:hover .pub-thumb img{transform:scale(1.045)}
+.pub-thumb .fk{font-family:'Fahkwang',serif;font-weight:300;font-size:clamp(46px,6vw,64px);color:var(--accent-ink);opacity:.92;line-height:1}
+.pub-thumb .mon{position:absolute;right:14px;bottom:12px;font-family:'Abel',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);opacity:.72;max-width:70%;text-align:right}
+.pub-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:9px;flex:1}
+.pub-cat{font-family:'Abel',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pub-cat{color:var(--line-strong)}}
+:root[data-theme="dark"] .pub-cat{color:var(--line-strong)}
+.pub-card h3{font-family:'Fahkwang',serif;font-weight:500;font-size:20px;line-height:1.28;color:var(--ink-strong);margin:0}
+.pub-resumo{font-family:'Abel',sans-serif;font-size:16px;line-height:1.6;color:var(--muted);margin:2px 0 0}
+.pub-meta{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-top:10px}
+.pub-author{font-family:'Abel',sans-serif;font-size:14.5px;color:var(--ink-strong)}
+.pub-date{font-family:'Abel',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+/* destaque = card largo (imagem à esquerda no desktop) */
+.pub-card.lead{grid-column:span 2;flex-direction:row}
+.pub-card.lead .pub-thumb{aspect-ratio:auto;width:46%;min-height:260px}
+.pub-card.lead .pub-body{padding:clamp(22px,2.6vw,36px);gap:12px;justify-content:center}
+.pub-card.lead .pub-cat{font-size:12.5px}
+.pub-card.lead h3{font-size:clamp(22px,2.4vw,29px)}
+/* imagem no topo da matéria (modal) */
+.materia-img{width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:3px;margin-bottom:22px;display:none}
+.materia-img.on{display:block}
 
 /* ---- Newsletter ---- */
 .news{margin-top:clamp(40px,5vw,60px);background:var(--accent);color:var(--accent-ink);border-radius:4px;padding:clamp(32px,4.5vw,52px);display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
@@ -339,17 +344,20 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:920px){
-  .about,.contact,.pub-featured,.news{grid-template-columns:1fr}
+  .about,.contact,.news{grid-template-columns:1fr}
   .partners{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr 1fr}
   .news .note{margin-top:0}
+  .pub-grid{grid-template-columns:1fr 1fr}
+  .pub-card.lead{grid-column:span 2;flex-direction:column}
+  .pub-card.lead .pub-thumb{width:100%;aspect-ratio:5/3.15;min-height:0}
 }
 @media (max-width:760px){
   nav.links{display:none}
   .menu-btn{display:grid}
   .nav-cta{display:none}
-  .pub-row{grid-template-columns:1fr;gap:6px;align-items:start}
-  .pub-row .go{margin-top:6px}
+  .pub-grid{grid-template-columns:1fr}
+  .pub-card.lead{grid-column:span 1}
   .foot-top{grid-template-columns:1fr}
   body{font-size:17px}
 }
@@ -518,36 +526,15 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
         <p class="lead muted">Artigos, análises e materiais sobre os temas que acompanhamos de perto. Os conteúdos abaixo são exemplos e podem ser editados.</p>
       </div>
 
-      <article class="pub-featured reveal" id="c-pub-featured">
-        <div class="pub-cover">
-          <span class="k">Ago<br>2026</span>
-          <span class="mon">Aranha &amp; Costa</span>
-        </div>
-        <div>
-          <p class="date">Agosto · 2026 — Direito Administrativo</p>
-          <h3>Nova Lei de Licitações: o que muda para quem contrata com o poder público</h3>
-          <p>Um panorama prático das mudanças que mais impactam empresas e gestores — e os pontos de atenção que evitam contratos travados e defesas tardias.</p>
-          <a class="btn btn-primary" href="#publicacoes">Ler publicação
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-
-      <div class="pub-list reveal" id="c-pub-list">
-        <div class="pub-row">
-          <span class="date">Jul · 2026</span>
-          <div><h4>Distratos imobiliários: o que a construtora precisa documentar</h4><p class="cat">Direito Imobiliário</p></div>
-          <a class="go" href="#publicacoes">Ler <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-        <div class="pub-row">
-          <span class="date">Jun · 2026</span>
-          <div><h4>Compliance trabalhista: prevenir custa menos que defender</h4><p class="cat">Direito do Trabalho</p></div>
-          <a class="go" href="#publicacoes">Baixar PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></a>
-        </div>
-        <div class="pub-row">
-          <span class="date">Mai · 2026</span>
-          <div><h4>Responsabilidade civil em contratos: onde mora o risco</h4><p class="cat">Direito Cível</p></div>
-          <a class="go" href="#publicacoes">Ler <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
+      <div class="pub-grid reveal" id="c-pub-grid">
+        <article class="pub-card lead">
+          <div class="pub-thumb"><span class="fk">A&amp;C</span><span class="mon">Direito do Trabalho</span></div>
+          <div class="pub-body">
+            <p class="pub-cat">Direito do Trabalho</p>
+            <h3>Assédio Eleitoral no Ambiente de Trabalho – Eleições 2026</h3>
+            <div class="pub-meta"><span class="pub-author">Tássia Costa</span><span class="pub-date">Ago · 2026</span></div>
+          </div>
+        </article>
       </div>
 
       <div class="news reveal" id="news">
@@ -692,6 +679,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
     <button class="modal-close" id="materiaFechar" aria-label="Fechar">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
+    <img class="materia-img" id="materiaImg" alt="">
     <p class="date" id="materiaData"></p>
     <h3 id="materiaTitulo"></h3>
     <p class="materia-autor" id="materiaAutor"></p>
@@ -737,6 +725,8 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
   var modal=document.getElementById('materiaModal');
   function abrirMateria(it){
     var dd=parseDate(it.data);
+    var mi=document.getElementById('materiaImg');
+    if(mi){if(it.imagem){mi.src=it.imagem;mi.alt=it.titulo||'';mi.classList.add('on');}else{mi.classList.remove('on');mi.removeAttribute('src');}}
     document.getElementById('materiaData').textContent=(dd?dd.mesFull+' · '+dd.y+' — ':'')+(it.categoria||'');
     document.getElementById('materiaTitulo').textContent=it.titulo||'';
     document.getElementById('materiaAutor').textContent = it.autor ? ('Por '+it.autor) : '';
@@ -790,36 +780,39 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
     }).join('');
   }).catch(function(){});
 
-  /* ---------- Publicações ---------- */
+  /* ---------- Publicações (grid de cards) ---------- */
   getJSON('publicacoes.json').then(function(d){
     var itens=(d.itens||[]).slice();if(!itens.length)return;
-    itens.sort(function(a,b){return String(b.data||'').localeCompare(String(a.data||''));});
-    var fi=0;for(var i=0;i<itens.length;i++){if(itens[i].destaque){fi=i;break;}}
-    var feat=itens[fi],rest=itens.filter(function(_,i){return i!==fi;});
+    itens.sort(function(a,b){
+      var ad=a.destaque?1:0, bd=b.destaque?1:0;
+      if(ad!==bd)return bd-ad;
+      return String(b.data||'').localeCompare(String(a.data||''));
+    });
+    var g=document.getElementById('c-pub-grid');if(!g)return;
     var mem={};
-
-    var f=document.getElementById('c-pub-featured');
-    if(f&&feat){
-      var fd=parseDate(feat.data);
-      var cover=fd?'<span class="k">'+fd.mesAbrev+'<br>'+fd.y+'</span>':'<span class="k">Aranha<br>&amp; Costa</span>';
-      var dline=fd?(fd.mesFull+' · '+fd.y+' — '+esc(feat.categoria||'')):esc(feat.categoria||'');
-      f.innerHTML='<div class="pub-cover">'+cover+'<span class="mon">Aranha &amp; Costa</span></div>'+
-        '<div><p class="date">'+dline+'</p><h3>'+esc(feat.titulo)+'</h3>'+(feat.autor?'<p class="pub-autor">Por '+esc(feat.autor)+'</p>':'')+'<p>'+esc(feat.resumo||'')+'</p>'+ctaMateria(feat,'btn btn-primary')+'</div>';
-      var fb=f.querySelector('[data-materia]');if(fb)fb.addEventListener('click',function(e){e.preventDefault();abrirMateria(feat);});
-    }
-
-    var l=document.getElementById('c-pub-list');
-    if(l){
-      l.innerHTML=rest.map(function(it,idx){
-        mem[idx]=it;
-        var dd=parseDate(it.data),dlab=dd?(dd.mesAbrev+' · '+dd.y):'';
-        var go=it.arquivo
-          ?'<a class="go" href="'+esc(it.arquivo)+'" target="_blank" rel="noopener">Baixar PDF '+DL+'</a>'
-          :(it.corpo?'<a class="go" href="#" data-idx="'+idx+'">Ler '+ARR+'</a>':'<span class="go muted">Em breve</span>');
-        return '<div class="pub-row"><span class="date">'+dlab+'</span><div><h4>'+esc(it.titulo)+'</h4><p class="cat">'+esc(it.categoria||'')+'</p>'+(it.autor?'<p class="autor">Por '+esc(it.autor)+'</p>':'')+'</div>'+go+'</div>';
-      }).join('');
-      l.querySelectorAll('a[data-idx]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();abrirMateria(mem[+a.getAttribute('data-idx')]);});});
-    }
+    g.innerHTML=itens.map(function(it,idx){
+      mem[idx]=it;
+      var dd=parseDate(it.data),dlab=dd?(dd.mesAbrev+' · '+dd.y):'';
+      var lead=it.destaque?' lead':'';
+      var thumb=it.imagem
+        ?'<div class="pub-thumb"><img src="'+esc(it.imagem)+'" alt="'+esc(it.titulo||'')+'" loading="lazy"></div>'
+        :'<div class="pub-thumb"><span class="fk">A&amp;C</span><span class="mon">'+esc(it.categoria||'Aranha & Costa')+'</span></div>';
+      var resumo=(lead&&it.resumo)?'<p class="pub-resumo">'+esc(it.resumo)+'</p>':'';
+      return '<article class="pub-card'+lead+'" data-idx="'+idx+'" tabindex="0" role="button" aria-label="Abrir publicação: '+esc(it.titulo||'')+'">'
+        +thumb
+        +'<div class="pub-body">'
+        +(it.categoria?'<p class="pub-cat">'+esc(it.categoria)+'</p>':'')
+        +'<h3>'+esc(it.titulo||'')+'</h3>'
+        +resumo
+        +'<div class="pub-meta"><span class="pub-author">'+(it.autor?esc(it.autor):'Aranha &amp; Costa')+'</span>'+(dlab?'<span class="pub-date">'+dlab+'</span>':'')+'</div>'
+        +'</div></article>';
+    }).join('');
+    function ativar(idx){var it=mem[idx];if(!it)return;if(it.arquivo){window.open(it.arquivo,'_blank','noopener');}else if(it.corpo){abrirMateria(it);}}
+    g.querySelectorAll('.pub-card').forEach(function(c){
+      var idx=+c.getAttribute('data-idx');
+      c.addEventListener('click',function(){ativar(idx);});
+      c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();ativar(idx);}});
+    });
   }).catch(function(){});
 })();
 </script>

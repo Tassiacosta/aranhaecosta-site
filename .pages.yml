@@ -21,6 +21,14 @@ content:
     - name: titulo
       label: Título
       type: string
+    - name: autor
+      label: Autor(a)
+      type: string
+      required: false
+    - name: imagem
+      label: Imagem da matéria (foto ligada ao tema)
+      type: image
+      required: false
     - name: resumo
       label: Resumo (aparece no card)
       type: text
