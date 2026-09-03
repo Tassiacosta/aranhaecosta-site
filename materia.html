@@ -516,6 +516,7 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
   getJSON('publicacoes.json').then(function(d){
     var itens=(d.itens||[]),it=null;
     for(var i=0;i<itens.length;i++){if(slugify(itens[i].titulo)===slug){it=itens[i];break;}}
+    if(it&&it.publicar_em){var _t=Date.parse(it.publicar_em);if(!isNaN(_t)&&Date.now()<_t)it=null;}
     if(!it){document.title='Publicação não encontrada — Aranha & Costa';elTit.textContent='Publicação não encontrada';elCrumb.textContent='Não encontrada';document.getElementById('mMeta').style.display='none';elCorpo.innerHTML='<p>Não localizamos esta publicação. <a href="index.html#publicacoes" style="border-bottom:1px solid var(--line-strong)">Ver todas as publicações</a>.</p>';return;}
     document.title=(it.titulo||'Publicação')+' — Aranha & Costa Advogados';
     var dd=parseDate(it.data);

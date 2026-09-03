@@ -782,17 +782,15 @@ footer{background:var(--ink-strong);color:var(--surface-2);padding:clamp(56px,7v
   }).catch(function(){});
 
   /* ---------- Publicações (grid de cards) ---------- */
+  function agendada(it){if(!it||!it.publicar_em)return false;var t=Date.parse(it.publicar_em);return !isNaN(t)&&Date.now()<t;}
   getJSON('publicacoes.json').then(function(d){
-    var itens=(d.itens||[]).slice();if(!itens.length)return;
-    itens.sort(function(a,b){
-      var ad=a.destaque?1:0, bd=b.destaque?1:0;
-      if(ad!==bd)return bd-ad;
-      return String(b.data||'').localeCompare(String(a.data||''));
-    });
+    var itens=(d.itens||[]).filter(function(it){return !agendada(it);});
+    if(!itens.length)return;
+    itens.sort(function(a,b){return String(b.data||'').localeCompare(String(a.data||''));});
     var g=document.getElementById('c-pub-grid');if(!g)return;
-    g.innerHTML=itens.map(function(it){
+    g.innerHTML=itens.map(function(it,i){
       var dd=parseDate(it.data),dlab=dd?(dd.mesAbrev+' · '+dd.y):'';
-      var lead=it.destaque?' lead':'';
+      var lead=(i===0)?' lead':'';
       var thumb=it.imagem
         ?'<div class="pub-thumb"><img src="'+esc(it.imagem)+'" alt="'+esc(it.titulo||'')+'" loading="lazy"></div>'
         :'<div class="pub-thumb"><span class="fk">A&amp;C</span><span class="mon">'+esc(it.categoria||'Aranha & Costa')+'</span></div>';
