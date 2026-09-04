@@ -14,8 +14,20 @@
     }
   ],
   "associados": [
-    { "nome": "Carlos Lacerda", "area": "OAB/AL n. 9.562", "foto": "" },
-    { "nome": "Juniely Batista", "area": "OAB/AL n. 10.045", "foto": "" },
-    { "nome": "Laura Fernandes", "area": "", "foto": "" }
+    {
+      "nome": "Carlos Lacerda",
+      "area": "OAB/AL n. 9.562",
+      "foto": ""
+    },
+    {
+      "nome": "Juniely Batista",
+      "area": "OAB/AL n. 10.045",
+      "foto": ""
+    },
+    {
+      "nome": "Laura Gonçalves",
+      "area": "",
+      "foto": ""
+    }
   ]
 }
